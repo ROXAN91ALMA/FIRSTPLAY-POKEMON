@@ -25,7 +25,7 @@ html, body {
 content: var(--l);
 position: absolute;
 transform: scale(1.1);
-filter: blur(10px);
+filter: blur(15px);
 }
 
 .container1 span::after {
@@ -33,16 +33,16 @@ content: var(--l);
 position: absolute;
 top: 40%;
 left: 0;
-filter: blur(20px);
+filter: blur(50px);
 transform: rotatex(50deg);
 }
 
 .container1 span:hover {
-  filter: contrast(150%);
+  filter: contrast(250%);
 }
 
 .container1 span:nth-child(1) {
-  color: green;
+  color: rgb(232, 232, 54);
 }
 
 .container1 span:nth-child(2) {
@@ -54,7 +54,7 @@ transform: rotatex(50deg);
 }
 
 .container1 span:nth-child(4) {
-  color: yellow;
+  color: greenyellow;
 }
 
 .container1 span:nth-child(5) {
@@ -62,11 +62,11 @@ transform: rotatex(50deg);
 }
 
 .container1 span:nth-child(6) {
-  color: gray;
+  color: rgb(143, 76, 128);
 }
 
 .container1 span:nth-child(7) {
-  color: rgb(131, 196, 232);
+  color: rgb(238, 127, 75);
 }
 
 #start-btn {
@@ -97,10 +97,8 @@ margin-left: 50%;
 
 }
 
-/*h1 {
+h1 {
   font-family: cursive;
-  font-size: 40px;
-  color:red;
   text-shadow:-1px -1px 1px #aaa,
   0px 4px 1px rgba(0,0,0,0.5),
   4px 4px 5px rgba(0,0,0,0.7),
@@ -108,6 +106,6 @@ margin-left: 50%;
   padding-left: 30%;
   width: 100%;
   
-}*/
+}
 
 

@@ -64,7 +64,12 @@ class Game {
             if(this.tick % 80 === 0) {
                 this.addEnemy();
             }
+            if(this.tick % 80 === 0) {
+                this.addGengarBad();
+            }
         }, 1000 / 60);
+
+
     }
 
 
@@ -78,6 +83,7 @@ class Game {
             gengarBad.draw();
         });
         this.rayos.forEach(rayo => rayo.draw());
+        
         this.enemys.forEach(enemy => {
             enemy.draw();
         });
@@ -107,14 +113,24 @@ class Game {
     clear() {
 		this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.enemys = this.enemys.filter(enemy => enemy.y < this.ctx.canvas.height);
+        this.gengarBads = this.gengarBads.filter(gengarBad => gengarBad.y < this.ctx.canvas.height);
     }
 
     addEnemy() {
-		const randomWidth = Math.random() * 10;
+		const randomWidth = Math.random() * 100 + 50;
 		const randomX = Math.random() * (this.ctx.canvas.width - randomWidth);
 		const enemy = new Enemy(this.ctx, randomX, - this.pokemon.width, randomWidth);
 		this.enemys.push(enemy);
 	}
+
+    addGengarBad() {
+        console.log("hellooooo")
+        const randomSide = Math.random() * 100 + 50;
+		const randomX = (Math.random() * this.ctx.canvas.width) + this.ctx.canvas.width/2;
+        console.log({randomX})
+		const gengarBad = new GengarBad(this.ctx, randomX, this.pokemon.height, 300);
+		this.gengarBads.push(gengarBad);
+    }
 
 
     onKeyDown(event) {
@@ -143,8 +159,9 @@ class Game {
 
 
     checkCollisions() {
-        const collisioningBall = this.enemys.find(enemy => this.pokemon.isColliding(enemy))
-        const collisioningAsh = this.ashKetchumm.find(ashKetchum => this.pokemon.isColliding(ashKetchum))
+        const collisioningBall = this.enemys.find(enemy => this.pokemon.isColliding(enemy));
+        const collisioninGengar = this.gengarBads.find(gengarBad => this.pokemon.isColliding(gengarBad));
+        const collisioningAsh = this.ashKetchumm.find(ashKetchum => this.pokemon.isColliding(ashKetchum));
 		const collisioningRayo = this.gengarBads.find(gengarBad => {
         
             return this.rayos.some(rayo => {
@@ -183,7 +200,8 @@ class Game {
            this.gengarSound.currentTime = 0;
            this.gengarSound.play();
 
-        } else if (this.gengarBads.find(gengarBad => this.pokemon.isColliding(gengarBad))) {
+        } else if (collisioninGengar) {
+            this.gengarBads.find(gengarBad => this.pokemon.isColliding(gengarBad))
             
             this.sound.pause();
             this.gengarSound.currentTime = 0;
