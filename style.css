@@ -1,0 +1,113 @@
+body{ margin:10px;
+    background-image:url("./images/fondo.jpg");
+    }
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.container1 span {
+  font-size: 60px;
+  font-weight: bold;
+  position: relative;
+  font-family: "fredoka One";
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.container1 span::before {
+content: var(--l);
+position: absolute;
+transform: scale(1.1);
+filter: blur(10px);
+}
+
+.container1 span::after {
+content: var(--l);
+position: absolute;
+top: 40%;
+left: 0;
+filter: blur(20px);
+transform: rotatex(50deg);
+}
+
+.container1 span:hover {
+  filter: contrast(150%);
+}
+
+.container1 span:nth-child(1) {
+  color: green;
+}
+
+.container1 span:nth-child(2) {
+  color: red;
+}
+
+.container1 span:nth-child(3) {
+  color: rgb(56, 56, 218);
+}
+
+.container1 span:nth-child(4) {
+  color: yellow;
+}
+
+.container1 span:nth-child(5) {
+  color: orange ;
+}
+
+.container1 span:nth-child(6) {
+  color: gray;
+}
+
+.container1 span:nth-child(7) {
+  color: rgb(131, 196, 232);
+}
+
+#start-btn {
+width: 120px;
+height: 50px;
+border-radius: 20%;
+color: rgb(186, 118, 118);
+font-family: cursive;
+text-shadow: 0px 3px 10px rgb(189, 115, 107);
+background-color: rgba(255, 255, 255, 0.8);
+margin-left: 50%;
+}
+
+.button {
+  font-size: larger;
+}
+
+
+.cuadro{
+  text-align: center;
+  width: 70%;
+
+}
+
+#canvas-play {
+  display: flex;
+  width: 150%;
+
+}
+
+/*h1 {
+  font-family: cursive;
+  font-size: 40px;
+  color:red;
+  text-shadow:-1px -1px 1px #aaa,
+  0px 4px 1px rgba(0,0,0,0.5),
+  4px 4px 5px rgba(0,0,0,0.7),
+  0px 0px 7px rgba(0,0,0,0.4);
+  padding-left: 30%;
+  width: 100%;
+  
+}*/
+
+
