@@ -1,5 +1,5 @@
 body{ margin:10px;
-    background-image:url("./images/fondo.jpg");
+    background-color: black;
     }
 
 html, body {
@@ -10,6 +10,15 @@ html, body {
 .container {
   width: 100%;
   max-width: 1000px;
+}
+
+img {
+  position: absolute ;
+  padding-left: 1050px;
+  padding-top: 400px;
+  width: 450px;
+  height:200px;
+  display: flex;
 }
 
 .container1 span {
@@ -25,7 +34,7 @@ html, body {
 content: var(--l);
 position: absolute;
 transform: scale(1.1);
-filter: blur(15px);
+filter: blur(0px);
 }
 
 .container1 span::after {
@@ -33,12 +42,12 @@ content: var(--l);
 position: absolute;
 top: 40%;
 left: 0;
-filter: blur(50px);
+filter: blur(10px);
 transform: rotatex(50deg);
 }
 
 .container1 span:hover {
-  filter: contrast(250%);
+  filter: contrast(350%);
 }
 
 .container1 span:nth-child(1) {
