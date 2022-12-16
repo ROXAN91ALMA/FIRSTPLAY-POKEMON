@@ -142,15 +142,15 @@ class Pokemon {
 			&& this.y + this.height > enemy.y + threshold;
 	}
 
-    checkCollisions() {
+    /*checkCollisions(this.fireball) {
 
     const collisioningFireballs = this.fireballs.find((fireball) =>
     this.pokemon.isColliding(fireball)
   );
 
   if (collisioningFireballs) {
-    this.fireballs.splice(this.fireballs.indexOf(collisioningBall), 1);
+    this.fireballs.splice(this.fireballs.indexOf(collisioningFireballs), 1);
     this.score--;
   }
-}
+}*/
 }

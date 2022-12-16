@@ -8,6 +8,7 @@ class Game {
     (this.charizardd = new Charizard(this.ctx, 600, 300, 30)),
     this.intervalId = null;
     this.enemys = [];
+    this.fireballs = [new Fireball(this.ctx, 580, 350, 50)];
     this.rayos = [];
     this.tick = 0;
     
@@ -211,14 +212,14 @@ class Game {
       });
     });
 
-    /*const collisioningFireballs = this.fireballs.find((fireball) =>
+    const collisioningFireballs = this.fireballs.find((fireball) =>
     this.pokemon.isColliding(fireball)
   );
 
   if (collisioningFireballs) {
     this.score--;
-    this.fireballs.splice(this.fireballs.indexOf(collisioningBall), 1);
-  }*/
+    this.fireballs.splice(this.fireballs.indexOf(collisioningFireballs), 1);
+  }
 
     
 
