@@ -95,6 +95,11 @@ class Charizard {
 
     }
 
+    
+    
+
+    
+
     onkeyEvent(event)  {
 		const isKeyDown = event.type === 'keydown';
 

@@ -13,7 +13,7 @@ class Enemy {
             this.height = this.width * (this.img.height) / (this.img.width);
             
         };
-        this.vy = 22;
+        this.vy = 8;
     }
 
 

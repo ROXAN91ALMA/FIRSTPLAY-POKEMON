@@ -31,4 +31,6 @@ class Fireball {
 			&& this.y > pokemon.y - pokemon.height
 			&& this.y - this.size < pokemon.y 
         }
+
+        
 }
