@@ -103,6 +103,7 @@ margin-left: 50%;
 #canvas-play {
   display: flex;
   width: 150%;
+  background-image: url("./images/pikachuintro.png");
 
 }
 

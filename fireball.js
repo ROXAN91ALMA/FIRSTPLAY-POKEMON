@@ -1,9 +1,10 @@
 class Fireball {
-    constructor(ctx, x, y, size) {
+    constructor(ctx, x, y) {
         this.ctx = ctx;
-        this.x = 580;
+        this.x = 550;
         this.y = y;
-        this.size = size;
+        this.width= 50;
+        this.height = 50;
         this.img = new Image();
         this.img.src = "./images/firechizard.png";
         this.isReady = false;
@@ -16,7 +17,7 @@ class Fireball {
 
     draw() {
         if(this.isReady){
-            this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size * this.img.height / this.img.width);
+            this.ctx.drawImage(this.img, this.x, this.y * this.img.height / this.img.width);
         }
     }
 
@@ -26,10 +27,10 @@ class Fireball {
 
     isColliding(pokemon) {
 	
-		return this.x > pokemon.x - pokemon.width
-			&& this.x - this.size < pokemon.x
-			&& this.y > pokemon.y - pokemon.height
-			&& this.y - this.size < pokemon.y 
+		return this.x < pokemon.x + pokemon.width
+			&& this.x + this.size > pokemon.x
+			&& this.y < pokemon.y + pokemon.height
+			&& this.y + this.size > pokemon.y 
         }
 
         

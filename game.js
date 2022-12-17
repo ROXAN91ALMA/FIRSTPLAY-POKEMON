@@ -5,10 +5,10 @@ class Game {
     this.bg = new Background(this.ctx, 0, 0);
     this.ashKetchumm = [new AshKetchum(this.ctx, 8400, 300, 30)];
 
-    (this.charizardd = new Charizard(this.ctx, 600, 300, 30)),
+    this.charizardd = new Charizard(this.ctx, 600, 300, 30),
     this.intervalId = null;
     this.enemys = [];
-    this.fireballs = [new Fireball(this.ctx, 580, 350, 50)];
+    this.fireballs = [];
     this.rayos = [];
     this.tick = 0;
     
@@ -71,9 +71,6 @@ class Game {
       if (this.tick % 80 === 0) {
         this.addEnemy();
       }
-      /*if(this.tick % 80 === 0) {
-                this.addCharizard();
-            }*/
     }, 1000 / 60);
   }
 
@@ -93,6 +90,7 @@ class Game {
     });*/
 
     this.charizardd.draw();
+   // this.charizardd.fireballs.draw();
       
     
     
@@ -200,17 +198,21 @@ class Game {
     const collisioningBall = this.enemys.find((enemy) =>
       this.pokemon.isColliding(enemy)
     );
+
     const collisioninGengar = this.gengarBads.find((gengarBad) =>
       this.pokemon.isColliding(gengarBad)
     );
+
     const collisioningAsh = this.ashKetchumm.find((ashKetchum) =>
       this.pokemon.isColliding(ashKetchum)
     );
+
     const collisioningRayo = this.gengarBads.find((gengarBad) => {
       return this.rayos.some((rayo) => {
         return rayo.isColliding(gengarBad);
       });
     });
+
 
     const collisioningFireballs = this.fireballs.find((fireball) =>
     this.pokemon.isColliding(fireball)
@@ -220,8 +222,8 @@ class Game {
     this.score--;
     this.fireballs.splice(this.fireballs.indexOf(collisioningFireballs), 1);
   }
-
     
+
 
     const collisioningRayo1 = this.rayos.find((rayo) => {
       return rayo.isColliding(this.charizardd);
@@ -240,6 +242,8 @@ class Game {
       this.win();
     }
 
+
+
     if (collisioningBall) {
       this.score++;
       this.enemys.splice(this.enemys.indexOf(collisioningBall), 1);
@@ -251,6 +255,7 @@ class Game {
     }
 
     
+
 
     if (collisioningRayo) {
       this.gengarBads.splice(this.gengarBads.indexOf(collisioningRayo), 1);
@@ -270,10 +275,15 @@ class Game {
       this.gameOver();
     }
 
+    
+
+
     if (collisioningRayo1) {
       this.rayos.splice(this.rayos.indexOf(collisioningRayo1), 1);
      // this.lifeChariz.pop();
     }
+
+
   }
 
   drawScore() {

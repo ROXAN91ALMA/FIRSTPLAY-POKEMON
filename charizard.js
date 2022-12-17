@@ -23,10 +23,13 @@ class Charizard {
             left: false,
             right: false,
         }
+
+        this.chariSound = new Audio("music/dragon.mp3");
     }
 
 
     draw() {
+  
         if(this.isReady) {
             this.ctx.drawImage(
                 this.img,
@@ -38,16 +41,30 @@ class Charizard {
 				this.y,
 				this.width,
 				this.height
+                
+                
             );
+           /* const collisioningFireballs = this.fireballs.find((fireball) =>
+    this.pokemon.isColliding(fireball)
+  );
+
+  if (collisioningFireballs) {
+    this.score--;
+    this.fireballs.splice(this.fireballs.indexOf(collisioningFireballs), 1);
+  }*/
             this.fireballs.forEach((fireball) => fireball.draw());
             this.tick++;
 
             // cuando llegue a tick % 60  añado una bola de fuego a mi array de bolas de fuego
             if(this.tick % 80 === 0) {
+                this.chariSound.currentTime = 0;
+                this.chariSound.play();
                 this.fireballs.push(
-                    new Fireball(this.ctx, 580, 350, 50)
+                    new Fireball(this.ctx, 500, 670)
+
                   );
-                   
+                  
+
             }
         
 
@@ -66,6 +83,7 @@ class Charizard {
             }
 
         }
+
     }
 
     move() {
